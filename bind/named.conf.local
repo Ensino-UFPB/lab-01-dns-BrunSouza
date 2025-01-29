@@ -1,0 +1,4 @@
+zone "bruno_souza.com" {
+    type master;
+    file "/etc/bind/db.bruno_souza.com";
+};

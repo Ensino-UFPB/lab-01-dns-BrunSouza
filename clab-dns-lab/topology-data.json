@@ -1,0 +1,97 @@
+{
+  "name": "dns-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-4a54c3d9e606",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "client": {
+      "index": "0",
+      "shortname": "client",
+      "longname": "clab-dns-lab-client",
+      "fqdn": "client.dns-lab.io",
+      "group": "",
+      "labdir": "/workspaces/lab-01-dns-BrunSouza/clab-dns-lab/client",
+      "kind": "linux",
+      "image": "ubuntu:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-4a54c3d9e606",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/workspaces/lab-01-dns-BrunSouza/clab-dns-lab/client",
+        "clab-node-name": "client",
+        "clab-node-type": "",
+        "clab-owner": "vscode",
+        "clab-topo-file": "/workspaces/lab-01-dns-BrunSouza/dns-lab.clab.yaml",
+        "containerlab": "dns-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "dns-server": {
+      "index": "1",
+      "shortname": "dns-server",
+      "longname": "clab-dns-lab-dns-server",
+      "fqdn": "dns-server.dns-lab.io",
+      "group": "",
+      "labdir": "/workspaces/lab-01-dns-BrunSouza/clab-dns-lab/dns-server",
+      "kind": "linux",
+      "image": "ubuntu:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-4a54c3d9e606",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/workspaces/lab-01-dns-BrunSouza/clab-dns-lab/dns-server",
+        "clab-node-name": "dns-server",
+        "clab-node-type": "",
+        "clab-owner": "vscode",
+        "clab-topo-file": "/workspaces/lab-01-dns-BrunSouza/dns-lab.clab.yaml",
+        "containerlab": "dns-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "dns-server",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:5f:a7:0a",
+        "peer": "z"
+      },
+      "z": {
+        "node": "client",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:6e:0d:85",
+        "peer": "a"
+      }
+    }
+  ]
+}
